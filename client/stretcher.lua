@@ -144,10 +144,10 @@ RegisterNetEvent('esx-radialmenu:client:TakeStretcher', function()
                 isAttached = true
             end)
         else
-            ESX.ShowNotification(Translation("error.obj_not_found"), 2500, 'error')
+            ESX.ShowNotification(Translation("obj_not_found"), 2500, 'error')
         end
     else
-        ESX.ShowNotification(Translation("error.not_near_ambulance"), 'error')
+        ESX.ShowNotification(Translation("not_near_ambulance"), 'error')
     end
 end)
 
@@ -167,7 +167,7 @@ RegisterNetEvent('esx-radialmenu:client:RemoveStretcher', function()
                 isLayingOnBed = false
             end
         else
-            ESX.ShowNotification(Translation("error.far_away"), 'error')
+            ESX.ShowNotification(Translation("far_away"), 'error')
         end
     end
 end)
@@ -226,7 +226,7 @@ RegisterNetEvent('esx-radialmenu:client:Result', function(isBusy, type)
             AttachEntityToEntity(ped, stretcherObject, 0, 0, 0.0, 1.6, 0.0, 0.0, 360.0, 0.0, false, false, false, false, 2)
             isLayingOnBed = true
         else
-            ESX.ShowNotification(Translation("error.stretcher_in_use"), "error")
+            ESX.ShowNotification(Translation("stretcher_in_use"), "error")
             isLayingOnBed = false
         end
     else
@@ -240,7 +240,7 @@ RegisterNetEvent('esx-radialmenu:client:Result', function(isBusy, type)
             FreezeEntityPosition(stretcherObject, false)
             isAttached = true
         else
-            ESX.ShowNotification(Translation("error.stretcher_in_use"), "error")
+            ESX.ShowNotification(Translation("stretcher_in_use"), "error")
             isAttached = false
         end
     end
@@ -276,7 +276,7 @@ CreateThread(function()
             if distance <= 1.0 then
                 if not isAttached then
                     sleep = 0
-                    DrawText3Ds(offsetCoords.x, offsetCoords.y, offsetCoords.z, Translation("general.push_stretcher_button"))
+                    DrawText3Ds(offsetCoords.x, offsetCoords.y, offsetCoords.z, Translation("push_stretcher_button"))
                     if IsControlJustPressed(0, 51) then
                         attachToStretcher()
                         isAttached = true
@@ -288,7 +288,7 @@ CreateThread(function()
                     end
                 else
                     sleep = 0
-                    DrawText3Ds(offsetCoords.x, offsetCoords.y, offsetCoords.z, Translation("general.stop_pushing_stretcher_button"))
+                    DrawText3Ds(offsetCoords.x, offsetCoords.y, offsetCoords.z, Translation("stop_pushing_stretcher_button"))
                     if IsControlJustPressed(0, 51) then
                         detachStretcher()
                         isAttached = false
@@ -299,7 +299,7 @@ CreateThread(function()
                 if not isLayingOnBed then
                     if not isAttached then
                         sleep = 0
-                        DrawText3Ds(offsetCoords.x, offsetCoords.y, offsetCoords.z + 0.2, Translation("general.lay_stretcher_button"))
+                        DrawText3Ds(offsetCoords.x, offsetCoords.y, offsetCoords.z + 0.2, Translation("lay_stretcher_button"))
                         if IsControlJustPressed(0, 47) or IsDisabledControlJustPressed(0, 47) then
                             LayOnStretcher()
                             sleep = 100
@@ -309,11 +309,11 @@ CreateThread(function()
             elseif distance <= 2 then
                 if not isLayingOnBed then
                     sleep = 0
-                    DrawText3Ds(offsetCoords.x, offsetCoords.y, offsetCoords.z, Translation("general.push_position_drawtext"))
+                    DrawText3Ds(offsetCoords.x, offsetCoords.y, offsetCoords.z, Translation("push_position_drawtext"))
                 else
                     if not isAttached then
                         sleep = 0
-                        DrawText3Ds(offsetCoords.x, offsetCoords.y, offsetCoords.z + 0.2, Translation("general.get_off_stretcher_button"))
+                        DrawText3Ds(offsetCoords.x, offsetCoords.y, offsetCoords.z + 0.2, Translation("get_off_stretcher_button"))
                         if IsControlJustPressed(0, 47) or IsDisabledControlJustPressed(0, 47) then
                             getOffStretcher()
                             sleep = 100

@@ -12,15 +12,15 @@ RegisterNetEvent('esx-trunk:server:KidnapTrunk', function(targetId, closestVehic
     TriggerClientEvent('esx-trunk:client:KidnapGetIn', targetId, closestVehicle)
 end)
 
-QBCore.Functions.CreateCallback('esx-trunk:server:getTrunkBusy', function(_, cb, plate)
+ESX.RegisterServerCallback('esx-trunk:server:getTrunkBusy', function(src, cb, plate)
     if trunkBusy[plate] then cb(true) return end
     cb(false)
 end)
 
-QBCore.Commands.Add("getintrunk", Translation("general.getintrunk_command_desc"), {}, false, function(source)
-    TriggerClientEvent('esx-trunk:client:GetIn', source)
-end)
+ESX.RegisterCommand({"getintrunk"}, 'user', function(xPlayer, args, showError)
+    TriggerClientEvent('esx-trunk:client:GetIn', xPlayer.source)
+end, false, {help = Translation("getintrunk_command_desc")})
 
-QBCore.Commands.Add("putintrunk", Translation("general.putintrunk_command_desc"), {}, false, function(source)
-    TriggerClientEvent('esx-trunk:server:KidnapTrunk', source)
-end)
+ESX.RegisterCommand({"putintrunk"}, 'user', function(xPlayer, args, showError)
+    TriggerClientEvent('esx-trunk:server:KidnapTrunk', xPlayer.source)
+end, false, {help = Translation("putintrunk_command_desc")})

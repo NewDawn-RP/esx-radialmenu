@@ -108,10 +108,10 @@ local function SetupVehicleMenu()
             VehicleMenu.items[seatIndex] = deepcopy(Config.VehicleSeats)
 
             local seatTable = {
-                [1] = Translation("options.driver_seat"),
-                [2] = Translation("options.passenger_seat"),
-                [3] = Translation("options.rear_left_seat"),
-                [4] = Translation("options.rear_right_seat"),
+                [1] = Translation("driver_seat"),
+                [2] = Translation("passenger_seat"),
+                [3] = Translation("rear_left_seat"),
+                [4] = Translation("rear_right_seat"),
             }
 
             local AmountOfSeats = GetVehicleModelNumberOfSeats(GetEntityModel(Vehicle))
@@ -119,7 +119,7 @@ local function SetupVehicleMenu()
                 local newIndex = #VehicleMenu.items[seatIndex].items+1
                 VehicleMenu.items[seatIndex].items[newIndex] = {
                     id = i - 2,
-                    title = seatTable[i] or Translation("options.other_seats"),
+                    title = seatTable[i] or Translation("other_seats"),
                     icon = 'caret-up',
                     type = 'client',
                     event = 'esx-radialmenu:client:ChangeSeat',
@@ -172,7 +172,7 @@ local function SetupRadialMenu()
             FinalMenuItems = {
                 [1] = {
                     id = 'emergencybutton2',
-                    title = Translation("options.emergency_button"),
+                    title = Translation("emergency_button"),
                     icon = 'circle-exclamation',
                     type = 'client',
                     event = 'police:client:SendPoliceEmergencyAlert',
@@ -244,7 +244,7 @@ RegisterCommand('radialmenu', function()
     end
 end)
 
-RegisterKeyMapping('radialmenu', Translation("general.command_description"), 'keyboard', Config.Keybind)
+RegisterKeyMapping('radialmenu', Translation("command_description"), 'keyboard', Config.Keybind)
 
 -- Events
 
@@ -294,7 +294,7 @@ RegisterNetEvent('esx-radialmenu:client:openDoor', function(data)
             end
         end
     else
-        ESX.ShowNotification(Translation("error.no_vehicle_found"), 'error', 2500)
+        ESX.ShowNotification(Translation("no_vehicle_found"), 'error', 2500)
     end
 end)
 
@@ -310,16 +310,16 @@ RegisterNetEvent('esx-radialmenu:client:setExtra', function(data)
             if DoesExtraExist(veh, extra) then
                 if IsVehicleExtraTurnedOn(veh, extra) then
                     SetVehicleExtra(veh, extra, 1)
-                    ESX.ShowNotification(Translation("error.extra_deactivated", {extra = extra}), 'error', 2500)
+                    ESX.ShowNotification(Translation("extra_deactivated", {extra = extra}), 'error', 2500)
                 else
                     SetVehicleExtra(veh, extra, 0)
-                    ESX.ShowNotification(Translation("success.extra_activated", {extra = extra}), 'success', 2500)
+                    ESX.ShowNotification(Translation("extra_activated", {extra = extra}), 'success', 2500)
                 end
             else
-                ESX.ShowNotification(Translation("error.extra_not_present", {extra = extra}), 'error', 2500)
+                ESX.ShowNotification(Translation("extra_not_present", {extra = extra}), 'error', 2500)
             end
         else
-            ESX.ShowNotification(Translation("error.not_driver"), 'error', 2500)
+            ESX.ShowNotification(Translation("not_driver"), 'error', 2500)
         end
     end
 end)
@@ -348,15 +348,15 @@ RegisterNetEvent('esx-radialmenu:client:ChangeSeat', function(data)
         if IsSeatFree then
             if kmh <= 100.0 then
                 SetPedIntoVehicle(PlayerPedId(), Veh, data.id)
-                ESX.ShowNotification(Translation("info.switched_seats", {seat = data.title}))
+                ESX.ShowNotification(Translation("switched_seats", {seat = data.title}))
             else
-                ESX.ShowNotification(Translation("error.vehicle_driving_fast"), 'error')
+                ESX.ShowNotification(Translation("vehicle_driving_fast"), 'error')
             end
         else
-            ESX.ShowNotification(Translation("error.seat_occupied"), 'error')
+            ESX.ShowNotification(Translation("seat_occupied"), 'error')
         end
     else
-        ESX.ShowNotification(Translation("error.race_harness_on"), 'error')
+        ESX.ShowNotification(Translation("race_harness_on"), 'error')
     end
 end)
 
