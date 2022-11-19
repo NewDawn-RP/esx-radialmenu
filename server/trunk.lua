@@ -17,10 +17,10 @@ QBCore.Functions.CreateCallback('esx-trunk:server:getTrunkBusy', function(_, cb,
     cb(false)
 end)
 
-QBCore.Commands.Add("getintrunk", Lang:t("general.getintrunk_command_desc"), {}, false, function(source)
+QBCore.Commands.Add("getintrunk", Translation("general.getintrunk_command_desc"), {}, false, function(source)
     TriggerClientEvent('esx-trunk:client:GetIn', source)
 end)
 
-QBCore.Commands.Add("putintrunk", Lang:t("general.putintrunk_command_desc"), {}, false, function(source)
+QBCore.Commands.Add("putintrunk", Translation("general.putintrunk_command_desc"), {}, false, function(source)
     TriggerClientEvent('esx-trunk:server:KidnapTrunk', source)
 end)

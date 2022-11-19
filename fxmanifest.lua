@@ -7,13 +7,13 @@ version '1.0.0'
 ui_page 'html/index.html'
 
 shared_scripts {
-    'config.lua',
-    '@qb-core/shared/locale.lua',
-    'locales/en.lua',
-    'locales/*.lua'
+    '@es_extended/imports.lua',
+    'locales/*.lua',
+    'config.lua',      
 }
 
 client_scripts {
+    'locales/*.lua',
     'client/main.lua',
     'client/clothing.lua',
     'client/trunk.lua',
@@ -21,6 +21,7 @@ client_scripts {
 }
 
 server_scripts {
+    'locales/*.lua',
     'server/trunk.lua',
     'server/stretcher.lua'
 }
