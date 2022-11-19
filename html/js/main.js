@@ -44,7 +44,7 @@ function createMenu(items) {
             }
             
             if (item.items == null && item.shouldClose != null) {
-                $.post('https://qb-radialmenu/selectItem', JSON.stringify({
+                $.post('https://esx-radialmenu/selectItem', JSON.stringify({
                     itemData: item
                 }))
             }

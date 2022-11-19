@@ -1,5 +1,4 @@
-QBCore = exports['qb-core']:GetCoreObject()
-PlayerData = QBCore.Functions.GetPlayerData() -- Setting this for when you restart the resource in game
+PlayerData = ESX.GetPlayerData() -- Setting this for when you restart the resource in game
 local inRadialMenu = false
 
 local jobIndex = nil
@@ -99,7 +98,7 @@ local function SetupVehicleMenu()
                 title = 'Flip Vehicle',
                 icon = 'car-burst',
                 type = 'client',
-                event = 'qb-radialmenu:flipVehicle',
+                event = 'esx-radialmenu:flipVehicle',
                 shouldClose = true
             }
         end
@@ -123,7 +122,7 @@ local function SetupVehicleMenu()
                     title = seatTable[i] or Lang:t("options.other_seats"),
                     icon = 'caret-up',
                     type = 'client',
-                    event = 'qb-radialmenu:client:ChangeSeat',
+                    event = 'esx-radialmenu:client:ChangeSeat',
                     shouldClose = false,
                 }
             end
@@ -215,10 +214,10 @@ local function setRadialState(bool, sendMessage, delay)
         SetNuiFocusKeepInput(bool, true)
     else
         if bool then
-            TriggerEvent('qb-radialmenu:client:onRadialmenuOpen')
+            TriggerEvent('esx-radialmenu:client:onRadialmenuOpen')
             SetupRadialMenu()
         else
-            TriggerEvent('qb-radialmenu:client:onRadialmenuClose')
+            TriggerEvent('esx-radialmenu:client:onRadialmenuClose')
         end
         SetNuiFocus(bool, bool)
     end
@@ -251,7 +250,7 @@ RegisterKeyMapping('radialmenu', Lang:t("general.command_description"), 'keyboar
 
 -- Sets the metadata when the player spawns
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
-    PlayerData = QBCore.Functions.GetPlayerData()
+    PlayerData = ESX.GetPlayerData()
 end)
 
 -- Sets the playerdata to an empty table when the player has quit or did /logout
@@ -264,11 +263,11 @@ RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
     PlayerData = val
 end)
 
-RegisterNetEvent('qb-radialmenu:client:noPlayers', function()
+RegisterNetEvent('esx-radialmenu:client:noPlayers', function()
     QBCore.Functions.Notify(Lang:t("error.no_people_nearby"), 'error', 2500)
 end)
 
-RegisterNetEvent('qb-radialmenu:client:openDoor', function(data)
+RegisterNetEvent('esx-radialmenu:client:openDoor', function(data)
     local string = data.id
     local replace = string:gsub("door", "")
     local door = tonumber(replace)
@@ -279,13 +278,13 @@ RegisterNetEvent('qb-radialmenu:client:openDoor', function(data)
             local plate = QBCore.Functions.GetPlate(closestVehicle)
             if GetVehicleDoorAngleRatio(closestVehicle, door) > 0.0 then
                 if not IsVehicleSeatFree(closestVehicle, -1) then
-                    TriggerServerEvent('qb-radialmenu:trunk:server:Door', false, plate, door)
+                    TriggerServerEvent('esx-radialmenu:trunk:server:Door', false, plate, door)
                 else
                     SetVehicleDoorShut(closestVehicle, door, false)
                 end
             else
                 if not IsVehicleSeatFree(closestVehicle, -1) then
-                    TriggerServerEvent('qb-radialmenu:trunk:server:Door', true, plate, door)
+                    TriggerServerEvent('esx-radialmenu:trunk:server:Door', true, plate, door)
                 else
                     SetVehicleDoorOpen(closestVehicle, door, false, false)
                 end
@@ -302,7 +301,7 @@ RegisterNetEvent('qb-radialmenu:client:openDoor', function(data)
     end
 end)
 
-RegisterNetEvent('qb-radialmenu:client:setExtra', function(data)
+RegisterNetEvent('esx-radialmenu:client:setExtra', function(data)
     local string = data.id
     local replace = string:gsub("extra", "")
     local extra = tonumber(replace)
@@ -328,7 +327,7 @@ RegisterNetEvent('qb-radialmenu:client:setExtra', function(data)
     end
 end)
 
-RegisterNetEvent('qb-radialmenu:trunk:client:Door', function(plate, door, open)
+RegisterNetEvent('esx-radialmenu:trunk:client:Door', function(plate, door, open)
     local veh = GetVehiclePedIsIn(PlayerPedId())
     if veh ~= 0 then
         local pl = QBCore.Functions.GetPlate(veh)
@@ -342,7 +341,7 @@ RegisterNetEvent('qb-radialmenu:trunk:client:Door', function(plate, door, open)
     end
 end)
 
-RegisterNetEvent('qb-radialmenu:client:ChangeSeat', function(data)
+RegisterNetEvent('esx-radialmenu:client:ChangeSeat', function(data)
     local Veh = GetVehiclePedIsIn(PlayerPedId())
     local IsSeatFree = IsVehicleSeatFree(Veh, data.id)
     local speed = GetEntitySpeed(Veh)
@@ -364,7 +363,7 @@ RegisterNetEvent('qb-radialmenu:client:ChangeSeat', function(data)
     end
 end)
 
-RegisterNetEvent('qb-radialmenu:flipVehicle', function()
+RegisterNetEvent('esx-radialmenu:flipVehicle', function()
     TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
     QBCore.Functions.Progressbar("pick_grape", Lang:t("progress.flipping_car"), Config.Fliptime, false, true, {
         disableMovement = true,

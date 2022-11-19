@@ -795,7 +795,7 @@ function ResetClothing(anim)
 	LastEquipped = {}
 end
 
-RegisterNetEvent('qb-radialmenu:ResetClothing', ResetClothing)
+RegisterNetEvent('esx-radialmenu:ResetClothing', ResetClothing)
 
 function ToggleClothing(whic, extra)
 	local which = whic
@@ -878,7 +878,7 @@ function ToggleClothing(whic, extra)
 	Notify(Lang:t("info.already_wearing")) return false
 end
 
-RegisterNetEvent('qb-radialmenu:ToggleClothing', ToggleClothing)
+RegisterNetEvent('esx-radialmenu:ToggleClothing', ToggleClothing)
 
 function ToggleProps(whic)
 	local which = whic
@@ -919,7 +919,7 @@ function ToggleProps(whic)
 	end
 end
 
-RegisterNetEvent('qb-radialmenu:ToggleProps', ToggleProps)
+RegisterNetEvent('esx-radialmenu:ToggleProps', ToggleProps)
 
 for k,v in pairs(Config.Commands) do
 	RegisterCommand(k, v.Func)

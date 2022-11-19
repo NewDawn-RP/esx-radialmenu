@@ -23,7 +23,7 @@ Config.MenuItems = {
                 title = 'Get In Trunk',
                 icon = 'car',
                 type = 'client',
-                event = 'qb-trunk:client:GetIn',
+                event = 'esx-trunk:client:GetIn',
                 shouldClose = true
             }, {
                 id = 'cornerselling',
@@ -176,49 +176,49 @@ Config.MenuItems = {
                         title = 'Hair',
                         icon = 'user',
                         type = 'client',
-                        event = 'qb-radialmenu:ToggleClothing',
+                        event = 'esx-radialmenu:ToggleClothing',
                         shouldClose = true
                     }, {
                         id = 'Ear',
                         title = 'Ear Piece',
                         icon = 'ear-deaf',
                         type = 'client',
-                        event = 'qb-radialmenu:ToggleProps',
+                        event = 'esx-radialmenu:ToggleProps',
                         shouldClose = true
                     }, {
                         id = 'Neck',
                         title = 'Neck',
                         icon = 'user-tie',
                         type = 'client',
-                        event = 'qb-radialmenu:ToggleClothing',
+                        event = 'esx-radialmenu:ToggleClothing',
                         shouldClose = true
                     }, {
                         id = 'Top',
                         title = 'Top',
                         icon = 'shirt',
                         type = 'client',
-                        event = 'qb-radialmenu:ToggleClothing',
+                        event = 'esx-radialmenu:ToggleClothing',
                         shouldClose = true
                     }, {
                         id = 'Shirt',
                         title = 'Shirt',
                         icon = 'shirt',
                         type = 'client',
-                        event = 'qb-radialmenu:ToggleClothing',
+                        event = 'esx-radialmenu:ToggleClothing',
                         shouldClose = true
                     }, {
                         id = 'Pants',
                         title = 'Pants',
                         icon = 'user',
                         type = 'client',
-                        event = 'qb-radialmenu:ToggleClothing',
+                        event = 'esx-radialmenu:ToggleClothing',
                         shouldClose = true
                     }, {
                         id = 'Shoes',
                         title = 'Shoes',
                         icon = 'shoe-prints',
                         type = 'client',
-                        event = 'qb-radialmenu:ToggleClothing',
+                        event = 'esx-radialmenu:ToggleClothing',
                         shouldClose = true
                     }, {
                         id = 'meer',
@@ -230,63 +230,63 @@ Config.MenuItems = {
                                 title = 'Hat',
                                 icon = 'hat-cowboy-side',
                                 type = 'client',
-                                event = 'qb-radialmenu:ToggleProps',
+                                event = 'esx-radialmenu:ToggleProps',
                                 shouldClose = true
                             }, {
                                 id = 'Glasses',
                                 title = 'Glasses',
                                 icon = 'glasses',
                                 type = 'client',
-                                event = 'qb-radialmenu:ToggleProps',
+                                event = 'esx-radialmenu:ToggleProps',
                                 shouldClose = true
                             }, {
                                 id = 'Visor',
                                 title = 'Visor',
                                 icon = 'hat-cowboy-side',
                                 type = 'client',
-                                event = 'qb-radialmenu:ToggleProps',
+                                event = 'esx-radialmenu:ToggleProps',
                                 shouldClose = true
                             }, {
                                 id = 'Mask',
                                 title = 'Mask',
                                 icon = 'masks-theater',
                                 type = 'client',
-                                event = 'qb-radialmenu:ToggleClothing',
+                                event = 'esx-radialmenu:ToggleClothing',
                                 shouldClose = true
                             }, {
                                 id = 'Vest',
                                 title = 'Vest',
                                 icon = 'vest',
                                 type = 'client',
-                                event = 'qb-radialmenu:ToggleClothing',
+                                event = 'esx-radialmenu:ToggleClothing',
                                 shouldClose = true
                             }, {
                                 id = 'Bag',
                                 title = 'Bag',
                                 icon = 'bag-shopping',
                                 type = 'client',
-                                event = 'qb-radialmenu:ToggleClothing',
+                                event = 'esx-radialmenu:ToggleClothing',
                                 shouldClose = true
                             }, {
                                 id = 'Bracelet',
                                 title = 'Bracelet',
                                 icon = 'user',
                                 type = 'client',
-                                event = 'qb-radialmenu:ToggleProps',
+                                event = 'esx-radialmenu:ToggleProps',
                                 shouldClose = true
                             }, {
                                 id = 'Watch',
                                 title = 'Watch',
                                 icon = 'stopwatch',
                                 type = 'client',
-                                event = 'qb-radialmenu:ToggleProps',
+                                event = 'esx-radialmenu:ToggleProps',
                                 shouldClose = true
                             }, {
                                 id = 'Gloves',
                                 title = 'Gloves',
                                 icon = 'mitten',
                                 type = 'client',
-                                event = 'qb-radialmenu:ToggleClothing',
+                                event = 'esx-radialmenu:ToggleClothing',
                                 shouldClose = true
                             }
                         }
@@ -307,42 +307,42 @@ Config.VehicleDoors = {
             title = 'Drivers door',
             icon = 'car-side',
             type = 'client',
-            event = 'qb-radialmenu:client:openDoor',
+            event = 'esx-radialmenu:client:openDoor',
             shouldClose = false
         }, {
             id = 'door4',
             title = 'Hood',
             icon = 'car',
             type = 'client',
-            event = 'qb-radialmenu:client:openDoor',
+            event = 'esx-radialmenu:client:openDoor',
             shouldClose = false
         }, {
             id = 'door1',
             title = 'Passengers door',
             icon = 'car-side',
             type = 'client',
-            event = 'qb-radialmenu:client:openDoor',
+            event = 'esx-radialmenu:client:openDoor',
             shouldClose = false
         }, {
             id = 'door3',
             title = 'Right rear',
             icon = 'car-side',
             type = 'client',
-            event = 'qb-radialmenu:client:openDoor',
+            event = 'esx-radialmenu:client:openDoor',
             shouldClose = false
         }, {
             id = 'door5',
             title = 'Trunk',
             icon = 'car',
             type = 'client',
-            event = 'qb-radialmenu:client:openDoor',
+            event = 'esx-radialmenu:client:openDoor',
             shouldClose = false
         }, {
             id = 'door2',
             title = 'Left rear',
             icon = 'car-side',
             type = 'client',
-            event = 'qb-radialmenu:client:openDoor',
+            event = 'esx-radialmenu:client:openDoor',
             shouldClose = false
         }
     }
@@ -358,91 +358,91 @@ Config.VehicleExtras = {
             title = 'Extra 1',
             icon = 'box-open',
             type = 'client',
-            event = 'qb-radialmenu:client:setExtra',
+            event = 'esx-radialmenu:client:setExtra',
             shouldClose = false
         }, {
             id = 'extra2',
             title = 'Extra 2',
             icon = 'box-open',
             type = 'client',
-            event = 'qb-radialmenu:client:setExtra',
+            event = 'esx-radialmenu:client:setExtra',
             shouldClose = false
         }, {
             id = 'extra3',
             title = 'Extra 3',
             icon = 'box-open',
             type = 'client',
-            event = 'qb-radialmenu:client:setExtra',
+            event = 'esx-radialmenu:client:setExtra',
             shouldClose = false
         }, {
             id = 'extra4',
             title = 'Extra 4',
             icon = 'box-open',
             type = 'client',
-            event = 'qb-radialmenu:client:setExtra',
+            event = 'esx-radialmenu:client:setExtra',
             shouldClose = false
         }, {
             id = 'extra5',
             title = 'Extra 5',
             icon = 'box-open',
             type = 'client',
-            event = 'qb-radialmenu:client:setExtra',
+            event = 'esx-radialmenu:client:setExtra',
             shouldClose = false
         }, {
             id = 'extra6',
             title = 'Extra 6',
             icon = 'box-open',
             type = 'client',
-            event = 'qb-radialmenu:client:setExtra',
+            event = 'esx-radialmenu:client:setExtra',
             shouldClose = false
         }, {
             id = 'extra7',
             title = 'Extra 7',
             icon = 'box-open',
             type = 'client',
-            event = 'qb-radialmenu:client:setExtra',
+            event = 'esx-radialmenu:client:setExtra',
             shouldClose = false
         }, {
             id = 'extra8',
             title = 'Extra 8',
             icon = 'box-open',
             type = 'client',
-            event = 'qb-radialmenu:client:setExtra',
+            event = 'esx-radialmenu:client:setExtra',
             shouldClose = false
         }, {
             id = 'extra9',
             title = 'Extra 9',
             icon = 'box-open',
             type = 'client',
-            event = 'qb-radialmenu:client:setExtra',
+            event = 'esx-radialmenu:client:setExtra',
             shouldClose = false
         }, {
             id = 'extra10',
             title = 'Extra 10',
             icon = 'box-open',
             type = 'client',
-            event = 'qb-radialmenu:client:setExtra',
+            event = 'esx-radialmenu:client:setExtra',
             shouldClose = false
         }, {
             id = 'extra11',
             title = 'Extra 11',
             icon = 'box-open',
             type = 'client',
-            event = 'qb-radialmenu:client:setExtra',
+            event = 'esx-radialmenu:client:setExtra',
             shouldClose = false
         }, {
             id = 'extra12',
             title = 'Extra 12',
             icon = 'box-open',
             type = 'client',
-            event = 'qb-radialmenu:client:setExtra',
+            event = 'esx-radialmenu:client:setExtra',
             shouldClose = false
         }, {
             id = 'extra13',
             title = 'Extra 13',
             icon = 'box-open',
             type = 'client',
-            event = 'qb-radialmenu:client:setExtra',
+            event = 'esx-radialmenu:client:setExtra',
             shouldClose = false
         }
     }
@@ -502,14 +502,14 @@ Config.JobInteractions = {
                     title = 'Spawn Stretcher',
                     icon = 'plus',
                     type = 'client',
-                    event = 'qb-radialmenu:client:TakeStretcher',
+                    event = 'esx-radialmenu:client:TakeStretcher',
                     shouldClose = false
                 }, {
                     id = 'despawnstretcher',
                     title = 'Remove Stretcher',
                     icon = 'minus',
                     type = 'client',
-                    event = 'qb-radialmenu:client:RemoveStretcher',
+                    event = 'esx-radialmenu:client:RemoveStretcher',
                     shouldClose = false
                 }
             }

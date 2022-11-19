@@ -88,7 +88,7 @@ local function LayOnStretcher()
         end
     else
         if distance < 2.0 then
-            TriggerServerEvent('qb-radialmenu:Stretcher:BusyCheck', GetPlayerServerId(player), "lay")
+            TriggerServerEvent('esx-radialmenu:Stretcher:BusyCheck', GetPlayerServerId(player), "lay")
         else
             loadAnim(inBedDicts)
             if stretcherObject and #(coords - GetEntityCoords(stretcherObject)) <= 3.0 then
@@ -123,7 +123,7 @@ local function attachToStretcher()
             FreezeEntityPosition(stretcherObject, false)
         else
             if distance < 2.0 then
-                TriggerServerEvent('qb-radialmenu:Stretcher:BusyCheck', GetPlayerServerId(closestPlayer), "attach")
+                TriggerServerEvent('esx-radialmenu:Stretcher:BusyCheck', GetPlayerServerId(closestPlayer), "attach")
             else
                 NetworkRequestControlOfEntity(stretcherObject)
                 loadAnim("anim@heists@box_carry@")
@@ -145,7 +145,7 @@ end
 
 -- Events
 
-RegisterNetEvent('qb-radialmenu:client:TakeStretcher', function()
+RegisterNetEvent('esx-radialmenu:client:TakeStretcher', function()
     local vehicle = checkForVehicles()
     if vehicle ~= 0 then
         RequestModel("prop_ld_binbag_01")
@@ -170,7 +170,7 @@ RegisterNetEvent('qb-radialmenu:client:TakeStretcher', function()
     end
 end)
 
-RegisterNetEvent('qb-radialmenu:client:RemoveStretcher', function()
+RegisterNetEvent('esx-radialmenu:client:RemoveStretcher', function()
     local ped = PlayerPedId()
     local coords = GetOffsetFromEntityInWorldCoords(ped, 0, 1.5, 0)
     if stretcherObject then
@@ -180,7 +180,7 @@ RegisterNetEvent('qb-radialmenu:client:RemoveStretcher', function()
                 DeleteEntity(stretcherObject)
                 ClearPedTasks(ped)
                 DetachEntity(ped, false, true)
-                TriggerServerEvent('qb-radialmenu:server:RemoveStretcher', coords, stretcherObject)
+                TriggerServerEvent('esx-radialmenu:server:RemoveStretcher', coords, stretcherObject)
                 isAttached = false
                 stretcherObject = nil
                 isLayingOnBed = false
@@ -191,7 +191,7 @@ RegisterNetEvent('qb-radialmenu:client:RemoveStretcher', function()
     end
 end)
 
-RegisterNetEvent('qb-radialmenu:client:RemoveStretcherFromArea', function(playerPos, bObject)
+RegisterNetEvent('esx-radialmenu:client:RemoveStretcherFromArea', function(playerPos, bObject)
     local ped = PlayerPedId()
     local pos = GetEntityCoords(ped)
     if pos ~= playerPos then
@@ -214,26 +214,26 @@ RegisterNetEvent('qb-radialmenu:client:RemoveStretcherFromArea', function(player
     end
 end)
 
-RegisterNetEvent('qb-radialmenu:Stretcher:client:BusyCheck', function(otherId, type)
+RegisterNetEvent('esx-radialmenu:Stretcher:client:BusyCheck', function(otherId, type)
     local ped = PlayerPedId()
     if type == "lay" then
         loadAnim("anim@gangops@morgue@table@")
         if IsEntityPlayingAnim(ped, "anim@gangops@morgue@table@", "ko_front", 3) then
-            TriggerServerEvent('qb-radialmenu:server:BusyResult', true, otherId, type)
+            TriggerServerEvent('esx-radialmenu:server:BusyResult', true, otherId, type)
         else
-            TriggerServerEvent('qb-radialmenu:server:BusyResult', false, otherId, type)
+            TriggerServerEvent('esx-radialmenu:server:BusyResult', false, otherId, type)
         end
     else
         loadAnim('anim@heists@box_carry@')
         if IsEntityPlayingAnim(ped, 'anim@heists@box_carry@', 'idle', 3) then
-            TriggerServerEvent('qb-radialmenu:server:BusyResult', true, otherId, type)
+            TriggerServerEvent('esx-radialmenu:server:BusyResult', true, otherId, type)
         else
-            TriggerServerEvent('qb-radialmenu:server:BusyResult', false, otherId, type)
+            TriggerServerEvent('esx-radialmenu:server:BusyResult', false, otherId, type)
         end
     end
 end)
 
-RegisterNetEvent('qb-radialmenu:client:Result', function(isBusy, type)
+RegisterNetEvent('esx-radialmenu:client:Result', function(isBusy, type)
     local ped = PlayerPedId()
     local inBedDicts = "anim@gangops@morgue@table@"
     local inBedAnims = "ko_front"
