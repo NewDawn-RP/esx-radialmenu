@@ -1,6 +1,6 @@
 'use strict';
 
-var QBRadialMenu = null;
+var ESXRadialMenu = null;
 var toggleConfig = false;
 var keybindConfig = false;
 $(document).ready(function(){
@@ -11,21 +11,21 @@ $(document).ready(function(){
                 keybindConfig = event.data.keybind;
                 if (event.data.radial) {
                     createMenu(event.data.items)
-                    QBRadialMenu.open();
+                    ESXRadialMenu.open();
                 } else {
-                    QBRadialMenu.close(true);
+                    ESXRadialMenu.close(true);
                 }
                 if (toggleConfig === false){
                      $(document).on('keyup', function(e) {
                          if(e.key == keybindConfig | e.key === keybindConfig.toLowerCase()){
-                             QBRadialMenu.close();
+                             ESXRadialMenu.close();
                          }
                      });
                  } else {
                     $(document).on('keydown', function(e) {
                         switch(e.key) {
                             case keybindConfig:
-                                QBRadialMenu.close();
+                                ESXRadialMenu.close();
                                 break;
                         }
                     });
@@ -34,13 +34,13 @@ $(document).ready(function(){
     });
 });
 function createMenu(items) {
-    QBRadialMenu = new RadialMenu({
+    ESXRadialMenu = new RadialMenu({
         parent      : document.body,
         size        : 375,
         menuItems   : items,
         onClick     : function(item) {
             if (item.shouldClose) {
-                QBRadialMenu.close(true);
+                ESXRadialMenu.close(true);
             }
             
             if (item.items == null && item.shouldClose != null) {
@@ -56,7 +56,7 @@ function createMenu(items) {
 $(document).on('keydown', function(e) {
     switch(e.key) {
         case "Escape":
-            QBRadialMenu.close();
+            ESXRadialMenu.close();
             break;
     }
 });

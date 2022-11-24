@@ -96,9 +96,9 @@ RegisterNetEvent('esx-trunk:client:KidnapGetIn', function(veh)
     local ped = PlayerPedId()
     local closestVehicle = veh
     local vehClass = GetVehicleClass(closestVehicle)
-    local plate = QBCore.Functions.GetPlate(closestVehicle)
+    local plate = GetVehicleNumberPlateText(closestVehicle)
     if Config.TrunkClasses[vehClass].allowed then
-        QBCore.Functions.TriggerCallback('esx-trunk:server:getTrunkBusy', function(isBusy)
+        ESX.TriggerServerCallback('esx-trunk:server:getTrunkBusy', function(isBusy)
             if not disabledTrunk[GetEntityModel(closestVehicle)] then
                 if not inTrunk then
                     if not isBusy then
@@ -127,7 +127,7 @@ RegisterNetEvent('esx-trunk:client:KidnapGetIn', function(veh)
                             end
                         else
                             local vehicle = GetEntityAttachedTo(ped)
-                            plate = QBCore.Functions.GetPlate(vehicle)
+                            plate = GetVehicleNumberPlateText(vehicle)
                             if GetVehicleDoorAngleRatio(vehicle, 5) > 0 then
                                 local vehCoords = GetOffsetFromEntityInWorldCoords(vehicle, 0, -5.0, 0)
                                 DetachEntity(ped, true, true)
@@ -161,9 +161,9 @@ RegisterNetEvent('esx-trunk:client:GetIn', function()
     local closestVehicle = getNearestVeh()
     if closestVehicle ~= 0 then
         local vehClass = GetVehicleClass(closestVehicle)
-        local plate = QBCore.Functions.GetPlate(closestVehicle)
+        local plate = GetVehicleNumberPlateText(closestVehicle)
         if Config.TrunkClasses[vehClass].allowed then
-            QBCore.Functions.TriggerCallback('esx-trunk:server:getTrunkBusy', function(isBusy)
+            ESX.TriggerServerCallback('esx-trunk:server:getTrunkBusy', function(isBusy)
                 if not disabledTrunk[GetEntityModel(closestVehicle)] then
                     if not inTrunk then
                         if not isBusy then
