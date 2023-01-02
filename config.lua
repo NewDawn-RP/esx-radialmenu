@@ -4,7 +4,7 @@ Config.Keybind = 'F1' -- FiveM Keyboard, this is registered keymapping, so needs
 Config.Toggle = false -- use toggle mode. False requires hold of key
 Config.UseWhilstWalking = false -- use whilst walking
 Config.EnableExtraMenu = true
-Config.Fliptime = 15000
+Config.Fliptime = 10000
 
 
 
@@ -28,21 +28,24 @@ Config.MenuItems = {
                 type = 'client',
                 event = 'esx-trunk:client:GetIn',
                 shouldClose = true
-            }, {
-                id = 'cornerselling',
-                title = 'Corner Selling',
-                icon = 'cannabis',
-                type = 'client',
-                event = 'qb-drugs:client:cornerselling',
-                shouldClose = true
-            }, {
-                id = 'togglehotdogsell',
-                title = 'Hotdog Selling',
-                icon = 'hotdog',
-                type = 'client',
-                event = 'qb-hotdogjob:client:ToggleSell',
-                shouldClose = true
-            }, {
+            }, 
+            -- {
+            --     id = 'cornerselling',
+            --     title = 'Corner Selling',
+            --     icon = 'cannabis',
+            --     type = 'client',
+            --     event = 'qb-drugs:client:cornerselling',
+            --     shouldClose = true
+            -- }, 
+            -- {
+            --     id = 'togglehotdogsell',
+            --     title = 'Hotdog Selling',
+            --     icon = 'hotdog',
+            --     type = 'client',
+            --     event = 'qb-hotdogjob:client:ToggleSell',
+            --     shouldClose = true
+            -- }, 
+            {
                 id = 'interactions',
                 title = 'Interaction',
                 icon = 'triangle-exclamation',
