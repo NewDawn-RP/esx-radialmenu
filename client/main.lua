@@ -64,7 +64,8 @@ local function SetupJobMenu()
         icon = 'briefcase',
         items = {}
     }
-    if Config.JobInteractions[JobInteractionCheck] and next(Config.JobInteractions[JobInteractionCheck]) and ESX.PlayerData.job.onduty then
+    --if Config.JobInteractions[JobInteractionCheck] and next(Config.JobInteractions[JobInteractionCheck]) and ESX.PlayerData.job.onduty then
+    if Config.JobInteractions[JobInteractionCheck] and next(Config.JobInteractions[JobInteractionCheck]) then
         JobMenu.items = Config.JobInteractions[JobInteractionCheck]
     end
 
@@ -396,8 +397,8 @@ RegisterNUICallback('selectItem', function(inData, cb)
             TriggerServerEvent(data.event, data)
         elseif data.type == 'command' then
             ExecuteCommand(data.event)
-        elseif data.type == 'qbcommand' then
-            TriggerServerEvent('QBCore:CallCommand', data.event, data)
+        -- elseif data.type == 'qbcommand' then
+        --     TriggerServerEvent('QBCore:CallCommand', data.event, data)
         end
     end
     cb('ok')
