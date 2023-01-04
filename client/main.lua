@@ -56,15 +56,15 @@ local function RemoveOption(id)
 end
 
 local function SetupJobMenu()
-    local JobInteractionCheck = PlayerData.job.name
-    if PlayerData.job.type == "leo" then JobInteractionCheck = "police" end
+    local JobInteractionCheck = ESX.PlayerData.job.name
+    if ESX.PlayerData.job.type == "leo" then JobInteractionCheck = "police" end
     local JobMenu = {
         id = 'jobinteractions',
         title = 'Work',
         icon = 'briefcase',
         items = {}
     }
-    if Config.JobInteractions[JobInteractionCheck] and next(Config.JobInteractions[JobInteractionCheck]) and PlayerData.job.onduty then
+    if Config.JobInteractions[JobInteractionCheck] and next(Config.JobInteractions[JobInteractionCheck]) and ESX.PlayerData.job.onduty then
         JobMenu.items = Config.JobInteractions[JobInteractionCheck]
     end
 
