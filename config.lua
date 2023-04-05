@@ -1,8 +1,8 @@
 Config = {}
 Config.Locale = GetConvar('esx:locale', 'fr')
-Config.Keybind = 'F1' -- FiveM Keyboard, this is registered keymapping, so needs changed in keybindings if player already has this mapped.
+Config.Keybind = 'W' -- FiveM Keyboard, this is registered keymapping, so needs changed in keybindings if player already has this mapped.
 Config.Toggle = false -- use toggle mode. False requires hold of key
-Config.UseWhilstWalking = true -- use whilst walking
+Config.UseWhilstWalking = false -- use whilst walking
 Config.EnableExtraMenu = false
 Config.Fliptime = 10000
 

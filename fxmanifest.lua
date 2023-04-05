@@ -7,7 +7,8 @@ version '1.0.0'
 ui_page 'html/index.html'
 
 shared_scripts {
-    '@es_extended/imports.lua',    
+    '@es_extended/imports.lua',
+    '@ox_lib/init.lua',
     'config.lua',
 }
 

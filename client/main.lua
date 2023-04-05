@@ -193,9 +193,11 @@ end
 local function controlToggle(bool)
     for i = 1, #controlsToToggle,1 do
         if bool then
-            exports['esx-smallresources']:addDisableControls(controlsToToggle[i])
+            --exports['esx-smallresources']:addDisableControls(controlsToToggle[i])
+            lib.disableControls:Add(controlsToToggle[i])
         else
-            exports['esx-smallresources']:removeDisableControls(controlsToToggle[i])
+           --exports['esx-smallresources']:removeDisableControls(controlsToToggle[i])
+            lib.disableControls:Remove(controlsToToggle[i])
         end
     end
 end
