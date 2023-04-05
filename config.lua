@@ -14,21 +14,23 @@ Config.MenuItems = {
         title = 'Citizen',
         icon = 'user',
         items = {
+            
             {
-                id = 'givenum',
-                title = 'Give Contact Details',
-                icon = 'address-book',
-                type = 'client',
-                event = 'qb-phone:client:GiveContactDetails',
-                shouldClose = true
-            }, {
                 id = 'getintrunk',
                 title = 'Get In Trunk',
                 icon = 'car',
                 type = 'client',
                 event = 'esx-trunk:client:GetIn',
                 shouldClose = true
-            }, 
+            },
+            -- {
+            --     id = 'givenum',
+            --     title = 'Give Contact Details',
+            --     icon = 'address-book',
+            --     type = 'client',
+            --     event = 'qb-phone:client:GiveContactDetails',
+            --     shouldClose = true
+            -- }, 
             -- {
             --     id = 'cornerselling',
             --     title = 'Corner Selling',
@@ -49,57 +51,80 @@ Config.MenuItems = {
                 id = 'interactions',
                 title = 'Interaction',
                 icon = 'triangle-exclamation',
-                items = {
+                items = {                     
                     {
-                        id = 'handcuff',
-                        title = 'Cuff',
-                        icon = 'user-lock',
-                        type = 'client',
-                        event = 'police:client:CuffPlayerSoft',
-                        shouldClose = true
-                    }, {
-                        id = 'playerinvehicle',
-                        title = 'Put In Vehicle',
-                        icon = 'car-side',
-                        type = 'client',
-                        event = 'police:client:PutPlayerInVehicle',
-                        shouldClose = true
-                    }, {
-                        id = 'playeroutvehicle',
-                        title = 'Take Out Of Vehicle',
-                        icon = 'car-side',
-                        type = 'client',
-                        event = 'police:client:SetPlayerOutVehicle',
-                        shouldClose = true
-                    }, {
-                        id = 'stealplayer',
-                        title = 'Rob',
-                        icon = 'mask',
-                        type = 'client',
-                        event = 'police:client:RobPlayer',
-                        shouldClose = true
-                    }, {
-                        id = 'escort',
-                        title = 'Kidnap',
-                        icon = 'user-group',
-                        type = 'client',
-                        event = 'police:client:KidnapPlayer',
-                        shouldClose = true
-                    }, {
-                        id = 'escort2',
-                        title = 'Escort',
-                        icon = 'user-group',
-                        type = 'client',
-                        event = 'police:client:EscortPlayer',
-                        shouldClose = true
-                    }, {
                         id = 'escort554',
-                        title = 'Hostage',
-                        icon = 'child',
+                        title = 'Prendre en otage',
+                        icon = 'people-robbery',
                         type = 'client',
-                        event = 'A5:Client:TakeHostage',
+                        --event = 'A5:Client:TakeHostage',
+                        command = "takehostage",
                         shouldClose = true
-                    }
+                    },
+                    {
+                        id = 'escort554',
+                        title = 'Porter (Dos)',
+                        icon = 'people-carry',
+                        type = 'client',
+                        command = "piggyback",
+                        shouldClose = true
+                    },
+                    {
+                        id = 'escort554',
+                        title = 'Porter (Epaules)',
+                        icon = 'people-carry',
+                        type = 'client',
+                        command = "carry",
+                        shouldClose = true
+                    },
+                    -- {
+                    --     id = 'handcuff',
+                    --     title = 'Cuff',
+                    --     icon = 'user-lock',
+                    --     type = 'client',
+                    --     event = 'police:client:CuffPlayerSoft',
+                    --     shouldClose = true
+                    -- }, 
+                    -- {
+                    --     id = 'playerinvehicle',
+                    --     title = 'Put In Vehicle',
+                    --     icon = 'car-side',
+                    --     type = 'client',
+                    --     event = 'police:client:PutPlayerInVehicle',
+                    --     shouldClose = true
+                    -- }, 
+                    -- {
+                    --     id = 'playeroutvehicle',
+                    --     title = 'Take Out Of Vehicle',
+                    --     icon = 'car-side',
+                    --     type = 'client',
+                    --     event = 'police:client:SetPlayerOutVehicle',
+                    --     shouldClose = true
+                    -- }, 
+                    -- {
+                    --     id = 'stealplayer',
+                    --     title = 'Rob',
+                    --     icon = 'mask',
+                    --     type = 'client',
+                    --     event = 'police:client:RobPlayer',
+                    --     shouldClose = true
+                    -- }, 
+                    -- {
+                    --     id = 'escort',
+                    --     title = 'Kidnap',
+                    --     icon = 'user-group',
+                    --     type = 'client',
+                    --     event = 'police:client:KidnapPlayer',
+                    --     shouldClose = true
+                    -- }, 
+                    -- {
+                    --     id = 'escort2',
+                    --     title = 'Escort',
+                    --     icon = 'user-group',
+                    --     type = 'client',
+                    --     event = 'police:client:EscortPlayer',
+                    --     shouldClose = true
+                    -- },
                 }
             }
         }
