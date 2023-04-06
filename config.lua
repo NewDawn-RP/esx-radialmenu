@@ -64,7 +64,7 @@ Config.MenuItems = {
                     {
                         id = 'escort554',
                         title = 'Porter (Dos)',
-                        icon = 'people-carry',
+                        icon = 'people-pulling',
                         type = 'client',
                         command = "piggyback",
                         shouldClose = true
@@ -72,7 +72,7 @@ Config.MenuItems = {
                     {
                         id = 'escort554',
                         title = 'Porter (Epaules)',
-                        icon = 'people-carry',
+                        icon = 'people-carry-box',
                         type = 'client',
                         command = "carry",
                         shouldClose = true
