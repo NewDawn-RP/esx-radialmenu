@@ -60,7 +60,7 @@ local function SetupJobMenu()
     if ESX.PlayerData.job.type == "leo" then JobInteractionCheck = "police" end
     local JobMenu = {
         id = 'jobinteractions',
-        title = 'Work',
+        title = 'Job',
         icon = 'briefcase',
         items = {}
     }
@@ -82,7 +82,7 @@ end
 local function SetupVehicleMenu()
     local VehicleMenu = {
         id = 'vehicle',
-        title = 'Vehicle',
+        title = 'Véhicule',
         icon = 'car',
         items = {}
     }
@@ -90,13 +90,13 @@ local function SetupVehicleMenu()
     local ped = PlayerPedId()
     local Vehicle = GetVehiclePedIsIn(ped) ~= 0 and GetVehiclePedIsIn(ped) or getNearestVeh()
     if Vehicle ~= 0 then
-        VehicleMenu.items[#VehicleMenu.items+1] = Config.VehicleDoors
+        
         if Config.EnableExtraMenu then VehicleMenu.items[#VehicleMenu.items+1] = Config.VehicleExtras end
 
         if not IsVehicleOnAllWheels(Vehicle) then
             VehicleMenu.items[#VehicleMenu.items+1] = {
                 id = 'vehicle-flip',
-                title = 'Flip Vehicle',
+                title = 'Retourner Véhicule',
                 icon = 'car-burst',
                 type = 'client',
                 event = 'esx-radialmenu:flipVehicle',
@@ -105,6 +105,7 @@ local function SetupVehicleMenu()
         end
 
         if IsPedInAnyVehicle(ped) then
+            VehicleMenu.items[#VehicleMenu.items+1] = Config.VehicleDoors
             local seatIndex = #VehicleMenu.items+1
             VehicleMenu.items[seatIndex] = deepcopy(Config.VehicleSeats)
 
@@ -164,7 +165,7 @@ local function IsPoliceOrEMS()
 end
 
 local function IsDowned()
-    return (ESX.PlayerData.dead)
+    return (LocalPlayer.state.isDead)
 end
 
 local function SetupRadialMenu()
@@ -365,19 +366,24 @@ end)
 
 RegisterNetEvent('esx-radialmenu:flipVehicle', function()
     TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
-    QBCore.Functions.Progressbar("pick_grape", Translation("progress.flipping_car"), Config.Fliptime, false, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true,
-    }, {}, {}, {}, function() -- Done
+    if lib.progressBar({
+        duration = Config.Fliptime,
+        label = Translation("progress.flipping_car"),
+        useWhileDead = false,
+        canCancel = true,
+        disable = {
+            move = true,
+            car = true,
+            combat = true,
+        },
+    }) then
         local vehicle = getNearestVeh()
         SetVehicleOnGroundProperly(vehicle)
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-    end, function() -- Cancel
+    else 
         ESX.ShowNotification(Translation("task.cancel_task"), "error")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-    end)
+    end
 end)
 
 -- NUI Callbacks
@@ -399,8 +405,6 @@ RegisterNUICallback('selectItem', function(inData, cb)
             TriggerServerEvent(data.event, data)
         elseif data.type == 'command' then
             ExecuteCommand(data.event)
-        -- elseif data.type == 'qbcommand' then
-        --     TriggerServerEvent('QBCore:CallCommand', data.event, data)
         end
     end
     cb('ok')
