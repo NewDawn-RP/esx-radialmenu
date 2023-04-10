@@ -355,154 +355,156 @@ Config.JobInteractions = {
             icon = 'bed-pulse',
             items = {
                 {
-                    id = 'spawnstretcher',
-                    title = 'Sortir brancard',
-                    icon = 'plus',
-                    type = 'client',
-                    event = 'esx-radialmenu:client:TakeStretcher',
-                    shouldClose = false
-                }, {
                     id = 'despawnstretcher',
                     title = 'Ranger brancard',
                     icon = 'minus',
                     type = 'client',
                     event = 'esx-radialmenu:client:RemoveStretcher',
                     shouldClose = false
-                }
+                },
+                {
+                    id = 'spawnstretcher',
+                    title = 'Sortir brancard',
+                    icon = 'plus',
+                    type = 'client',
+                    event = 'esx-radialmenu:client:TakeStretcher',
+                    shouldClose = false
+                },
             }
         },        
         {
-            id = 'emergencybutton2',
-            title = 'Emergency button',
-            icon = 'bell',
-            type = 'client',
-            event = 'police:client:SendPoliceEmergencyAlert',
-            shouldClose = true
-        },
-    },
-    ["taxi"] = {
-        {
-            id = 'togglemeter',
-            title = 'Show/Hide Meter',
-            icon = 'eye-slash',
-            type = 'client',
-            event = 'qb-taxi:client:toggleMeter',
-            shouldClose = false
-        }, 
-        {
-            id = 'togglemouse',
-            title = 'Start/Stop Meter',
-            icon = 'hourglass-start',
-            type = 'client',
-            event = 'qb-taxi:client:enableMeter',
-            shouldClose = true
-        },
-    },
-    ["tow"] = {
-        {
-            id = 'togglenpc',
-            title = 'Toggle NPC',
-            icon = 'toggle-on',
-            type = 'client',
-            event = 'jobs:client:ToggleNpc',
-            shouldClose = true
-        }, 
-        {
-            id = 'towvehicle',
-            title = 'Tow vehicle',
-            icon = 'truck-pickup',
-            type = 'client',
-            event = 'qb-tow:client:TowVehicle',
-            shouldClose = true
-        }
-    },
-    ["mechanic"] = {
-        {
-            id = 'towvehicle',
-            title = 'Tow vehicle',
-            icon = 'truck-pickup',
-            type = 'client',
-            event = 'qb-tow:client:TowVehicle',
-            shouldClose = true
-        }
-    },
-    ["police"] = {
-        {
-            id = 'emergencybutton',
+            id = 'emsdistress',
             title = "Bouton d'Urgence",
             icon = 'bell',
             type = 'client',
-            event = 'police:client:SendPoliceEmergencyAlert',
+            event = 'ps-dispatch:client:emsDistress',
             shouldClose = true
         },
-        {
-            id = 'policeobjects',
-            title = 'Objects',
-            icon = 'road',
-            items = {
-                {
-                    id = 'spawnpion',
-                    title = 'Cone',
-                    icon = 'triangle-exclamation',
-                    type = 'client',
-                    event = 'police:client:spawnCone',
-                    shouldClose = false
-                }, {
-                    id = 'spawnhek',
-                    title = 'Gate',
-                    icon = 'torii-gate',
-                    type = 'client',
-                    event = 'police:client:spawnBarrier',
-                    shouldClose = false
-                }, {
-                    id = 'spawnschotten',
-                    title = 'Speed Limit Sign',
-                    icon = 'sign-hanging',
-                    type = 'client',
-                    event = 'police:client:spawnRoadSign',
-                    shouldClose = false
-                }, {
-                    id = 'spawntent',
-                    title = 'Tent',
-                    icon = 'campground',
-                    type = 'client',
-                    event = 'police:client:spawnTent',
-                    shouldClose = false
-                }, {
-                    id = 'spawnverlichting',
-                    title = 'Lighting',
-                    icon = 'lightbulb',
-                    type = 'client',
-                    event = 'police:client:spawnLight',
-                    shouldClose = false
-                }, {
-                    id = 'spikestrip',
-                    title = 'Spike Strips',
-                    icon = 'caret-up',
-                    type = 'client',
-                    event = 'police:client:SpawnSpikeStrip',
-                    shouldClose = false
-                }, {
-                    id = 'deleteobject',
-                    title = 'Remove object',
-                    icon = 'trash',
-                    type = 'client',
-                    event = 'police:client:deleteObject',
-                    shouldClose = false
-                }
-            }
-        }
     },
-    ["hotdog"] = {
+    ["police"] = {
         {
-            id = 'togglesell',
-            title = 'Toggle sell',
-            icon = 'hotdog',
+            id = 'policedistress',
+            title = "Bouton d'Urgence",
+            icon = 'bell',
             type = 'client',
-            event = 'qb-hotdogjob:client:ToggleSell',
+            event = 'ps-dispatch:client:officerDistress',
             shouldClose = true
-        }
-    }
+        },
+        -- {
+        --     id = 'policeobjects',
+        --     title = 'Objects',
+        --     icon = 'road',
+        --     items = {
+        --         {
+        --             id = 'spawnpion',
+        --             title = 'Cone',
+        --             icon = 'triangle-exclamation',
+        --             type = 'client',
+        --             event = 'police:client:spawnCone',
+        --             shouldClose = false
+        --         }, {
+        --             id = 'spawnhek',
+        --             title = 'Gate',
+        --             icon = 'torii-gate',
+        --             type = 'client',
+        --             event = 'police:client:spawnBarrier',
+        --             shouldClose = false
+        --         }, {
+        --             id = 'spawnschotten',
+        --             title = 'Speed Limit Sign',
+        --             icon = 'sign-hanging',
+        --             type = 'client',
+        --             event = 'police:client:spawnRoadSign',
+        --             shouldClose = false
+        --         }, {
+        --             id = 'spawntent',
+        --             title = 'Tent',
+        --             icon = 'campground',
+        --             type = 'client',
+        --             event = 'police:client:spawnTent',
+        --             shouldClose = false
+        --         }, {
+        --             id = 'spawnverlichting',
+        --             title = 'Lighting',
+        --             icon = 'lightbulb',
+        --             type = 'client',
+        --             event = 'police:client:spawnLight',
+        --             shouldClose = false
+        --         }, {
+        --             id = 'spikestrip',
+        --             title = 'Spike Strips',
+        --             icon = 'caret-up',
+        --             type = 'client',
+        --             event = 'police:client:SpawnSpikeStrip',
+        --             shouldClose = false
+        --         }, {
+        --             id = 'deleteobject',
+        --             title = 'Remove object',
+        --             icon = 'trash',
+        --             type = 'client',
+        --             event = 'police:client:deleteObject',
+        --             shouldClose = false
+        --         }
+        --     }
+        -- }
+    },
+    ["taxi"] = {        
+        {
+            id = 'togglemouse',
+            title = 'Contrôler Taximètre',
+            icon = 'hourglass-start',
+            type = 'command',
+            event = '+taxi',
+            shouldClose = true
+        },
+        -- {
+        --     id = 'togglemeter',
+        --     title = 'Show/Hide Meter',
+        --     icon = 'eye-slash',
+        --     type = 'client',
+        --     event = 'qb-taxi:client:toggleMeter',
+        --     shouldClose = false
+        -- }, 
+    },
+    
+    -- ["mechanic"] = {
+    --     {
+    --         id = 'towvehicle',
+    --         title = 'Tow vehicle',
+    --         icon = 'truck-pickup',
+    --         type = 'client',
+    --         event = 'qb-tow:client:TowVehicle',
+    --         shouldClose = true
+    --     }
+    -- },
+    -- ["tow"] = {
+    --     {
+    --         id = 'togglenpc',
+    --         title = 'Toggle NPC',
+    --         icon = 'toggle-on',
+    --         type = 'client',
+    --         event = 'jobs:client:ToggleNpc',
+    --         shouldClose = true
+    --     }, 
+    --     {
+    --         id = 'towvehicle',
+    --         title = 'Tow vehicle',
+    --         icon = 'truck-pickup',
+    --         type = 'client',
+    --         event = 'qb-tow:client:TowVehicle',
+    --         shouldClose = true
+    --     }
+    -- },
+    -- ["hotdog"] = {
+    --     {
+    --         id = 'togglesell',
+    --         title = 'Toggle sell',
+    --         icon = 'hotdog',
+    --         type = 'client',
+    --         event = 'qb-hotdogjob:client:ToggleSell',
+    --         shouldClose = true
+    --     }
+    -- }
 }
 
 Config.TrunkClasses = {
