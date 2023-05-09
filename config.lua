@@ -2,7 +2,7 @@ Config = {}
 Config.Locale = GetConvar('esx:locale', 'fr')
 Config.Keybind = 'W' -- FiveM Keyboard, this is registered keymapping, so needs changed in keybindings if player already has this mapped.
 Config.Toggle = true -- use toggle mode. False requires hold of key
-Config.UseWhilstWalking = true -- use whilst walking
+Config.UseWhilstWalking = false -- use whilst walking
 Config.EnableExtraMenu = false
 Config.Fliptime = 10000
 
@@ -48,140 +48,140 @@ Config.MenuItems = {
             },
         }
     },
-    [2] = {
-        id = 'general',
-        title = 'Autres',
-        icon = 'rectangle-list',
-        items = {
-            {
-                id = 'clothesmenu',
-                title = 'Vêtements',
-                icon = 'shirt',
-                items = {
-                    {
-                        id = 'Hair',
-                        title = 'Hair',
-                        icon = 'user',
-                        type = 'client',
-                        event = 'esx-radialmenu:ToggleClothing',
-                        shouldClose = true
-                    }, {
-                        id = 'Ear',
-                        title = 'Ear Piece',
-                        icon = 'ear-deaf',
-                        type = 'client',
-                        event = 'esx-radialmenu:ToggleProps',
-                        shouldClose = true
-                    }, {
-                        id = 'Neck',
-                        title = 'Neck',
-                        icon = 'user-tie',
-                        type = 'client',
-                        event = 'esx-radialmenu:ToggleClothing',
-                        shouldClose = true
-                    }, {
-                        id = 'Top',
-                        title = 'Top',
-                        icon = 'shirt',
-                        type = 'client',
-                        event = 'esx-radialmenu:ToggleClothing',
-                        shouldClose = true
-                    }, {
-                        id = 'Shirt',
-                        title = 'T-Shirt',
-                        icon = 'shirt',
-                        type = 'client',
-                        event = 'esx-radialmenu:ToggleClothing',
-                        shouldClose = true
-                    }, {
-                        id = 'Pants',
-                        title = 'Pantalon',
-                        icon = 'user',
-                        type = 'client',
-                        event = 'esx-radialmenu:ToggleClothing',
-                        shouldClose = true
-                    }, {
-                        id = 'Shoes',
-                        title = 'Chaussures',
-                        icon = 'shoe-prints',
-                        type = 'client',
-                        event = 'esx-radialmenu:ToggleClothing',
-                        shouldClose = true
-                    }, {
-                        id = 'meer',
-                        title = 'Extras',
-                        icon = 'plus',
-                        items = {
-                            {
-                                id = 'Hat',
-                                title = 'Hat',
-                                icon = 'hat-cowboy-side',
-                                type = 'client',
-                                event = 'esx-radialmenu:ToggleProps',
-                                shouldClose = true
-                            }, {
-                                id = 'Glasses',
-                                title = 'Glasses',
-                                icon = 'glasses',
-                                type = 'client',
-                                event = 'esx-radialmenu:ToggleProps',
-                                shouldClose = true
-                            }, {
-                                id = 'Visor',
-                                title = 'Visor',
-                                icon = 'hat-cowboy-side',
-                                type = 'client',
-                                event = 'esx-radialmenu:ToggleProps',
-                                shouldClose = true
-                            }, {
-                                id = 'Mask',
-                                title = 'Mask',
-                                icon = 'masks-theater',
-                                type = 'client',
-                                event = 'esx-radialmenu:ToggleClothing',
-                                shouldClose = true
-                            }, {
-                                id = 'Vest',
-                                title = 'Vest',
-                                icon = 'vest',
-                                type = 'client',
-                                event = 'esx-radialmenu:ToggleClothing',
-                                shouldClose = true
-                            }, {
-                                id = 'Bag',
-                                title = 'Bag',
-                                icon = 'bag-shopping',
-                                type = 'client',
-                                event = 'esx-radialmenu:ToggleClothing',
-                                shouldClose = true
-                            }, {
-                                id = 'Bracelet',
-                                title = 'Bracelet',
-                                icon = 'user',
-                                type = 'client',
-                                event = 'esx-radialmenu:ToggleProps',
-                                shouldClose = true
-                            }, {
-                                id = 'Watch',
-                                title = 'Watch',
-                                icon = 'stopwatch',
-                                type = 'client',
-                                event = 'esx-radialmenu:ToggleProps',
-                                shouldClose = true
-                            }, {
-                                id = 'Gloves',
-                                title = 'Gloves',
-                                icon = 'mitten',
-                                type = 'client',
-                                event = 'esx-radialmenu:ToggleClothing',
-                                shouldClose = true
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    },
+    -- [2] = {
+    --     id = 'general',
+    --     title = 'Autres',
+    --     icon = 'rectangle-list',
+    --     items = {
+    --         {
+    --             id = 'clothesmenu',
+    --             title = 'Vêtements',
+    --             icon = 'shirt',
+    --             items = {
+    --                 {
+    --                     id = 'Hair',
+    --                     title = 'Hair',
+    --                     icon = 'user',
+    --                     type = 'client',
+    --                     event = 'esx-radialmenu:ToggleClothing',
+    --                     shouldClose = true
+    --                 }, {
+    --                     id = 'Ear',
+    --                     title = 'Ear Piece',
+    --                     icon = 'ear-deaf',
+    --                     type = 'client',
+    --                     event = 'esx-radialmenu:ToggleProps',
+    --                     shouldClose = true
+    --                 }, {
+    --                     id = 'Neck',
+    --                     title = 'Neck',
+    --                     icon = 'user-tie',
+    --                     type = 'client',
+    --                     event = 'esx-radialmenu:ToggleClothing',
+    --                     shouldClose = true
+    --                 }, {
+    --                     id = 'Top',
+    --                     title = 'Top',
+    --                     icon = 'shirt',
+    --                     type = 'client',
+    --                     event = 'esx-radialmenu:ToggleClothing',
+    --                     shouldClose = true
+    --                 }, {
+    --                     id = 'Shirt',
+    --                     title = 'T-Shirt',
+    --                     icon = 'shirt',
+    --                     type = 'client',
+    --                     event = 'esx-radialmenu:ToggleClothing',
+    --                     shouldClose = true
+    --                 }, {
+    --                     id = 'Pants',
+    --                     title = 'Pantalon',
+    --                     icon = 'user',
+    --                     type = 'client',
+    --                     event = 'esx-radialmenu:ToggleClothing',
+    --                     shouldClose = true
+    --                 }, {
+    --                     id = 'Shoes',
+    --                     title = 'Chaussures',
+    --                     icon = 'shoe-prints',
+    --                     type = 'client',
+    --                     event = 'esx-radialmenu:ToggleClothing',
+    --                     shouldClose = true
+    --                 }, {
+    --                     id = 'meer',
+    --                     title = 'Extras',
+    --                     icon = 'plus',
+    --                     items = {
+    --                         {
+    --                             id = 'Hat',
+    --                             title = 'Hat',
+    --                             icon = 'hat-cowboy-side',
+    --                             type = 'client',
+    --                             event = 'esx-radialmenu:ToggleProps',
+    --                             shouldClose = true
+    --                         }, {
+    --                             id = 'Glasses',
+    --                             title = 'Glasses',
+    --                             icon = 'glasses',
+    --                             type = 'client',
+    --                             event = 'esx-radialmenu:ToggleProps',
+    --                             shouldClose = true
+    --                         }, {
+    --                             id = 'Visor',
+    --                             title = 'Visor',
+    --                             icon = 'hat-cowboy-side',
+    --                             type = 'client',
+    --                             event = 'esx-radialmenu:ToggleProps',
+    --                             shouldClose = true
+    --                         }, {
+    --                             id = 'Mask',
+    --                             title = 'Mask',
+    --                             icon = 'masks-theater',
+    --                             type = 'client',
+    --                             event = 'esx-radialmenu:ToggleClothing',
+    --                             shouldClose = true
+    --                         }, {
+    --                             id = 'Vest',
+    --                             title = 'Vest',
+    --                             icon = 'vest',
+    --                             type = 'client',
+    --                             event = 'esx-radialmenu:ToggleClothing',
+    --                             shouldClose = true
+    --                         }, {
+    --                             id = 'Bag',
+    --                             title = 'Bag',
+    --                             icon = 'bag-shopping',
+    --                             type = 'client',
+    --                             event = 'esx-radialmenu:ToggleClothing',
+    --                             shouldClose = true
+    --                         }, {
+    --                             id = 'Bracelet',
+    --                             title = 'Bracelet',
+    --                             icon = 'user',
+    --                             type = 'client',
+    --                             event = 'esx-radialmenu:ToggleProps',
+    --                             shouldClose = true
+    --                         }, {
+    --                             id = 'Watch',
+    --                             title = 'Watch',
+    --                             icon = 'stopwatch',
+    --                             type = 'client',
+    --                             event = 'esx-radialmenu:ToggleProps',
+    --                             shouldClose = true
+    --                         }, {
+    --                             id = 'Gloves',
+    --                             title = 'Gloves',
+    --                             icon = 'mitten',
+    --                             type = 'client',
+    --                             event = 'esx-radialmenu:ToggleClothing',
+    --                             shouldClose = true
+    --                         }
+    --                     }
+    --                 }
+    --             }
+    --         }
+    --     }
+    -- },
 }
 
 Config.VehicleDoors = {
@@ -236,6 +236,30 @@ Config.VehicleDoors = {
             type = 'client',
             event = 'esx-radialmenu:client:openDoor',
             shouldClose = false
+        },
+    }
+}
+
+Config.VehicleOthers = {
+    id = 'vehicleother',
+    title = 'Autres',
+    icon = 'plus',
+    items = {
+        {
+            id = 'attach',
+            title = 'Attacher le véhicule',
+            icon = 'link',
+            type = 'command',
+            event = 'attach',
+            shouldClose = true
+        },
+        {
+            id = 'attach',
+            title = 'Détacher le véhicule',
+            icon = 'link-slash',
+            type = 'command',
+            event = 'detach',
+            shouldClose = true
         },
     }
 }

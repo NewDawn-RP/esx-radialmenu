@@ -93,6 +93,8 @@ local function SetupVehicleMenu()
         
         if Config.EnableExtraMenu then VehicleMenu.items[#VehicleMenu.items+1] = Config.VehicleExtras end
 
+        VehicleMenu.items[#VehicleMenu.items+1] = Config.VehicleOthers
+
         if not IsVehicleOnAllWheels(Vehicle) then
             VehicleMenu.items[#VehicleMenu.items+1] = {
                 id = 'vehicle-flip',
