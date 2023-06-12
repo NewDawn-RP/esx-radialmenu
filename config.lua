@@ -1,6 +1,6 @@
 Config = {}
 Config.Locale = GetConvar('esx:locale', 'fr')
-Config.Keybind = 'W' -- FiveM Keyboard, this is registered keymapping, so needs changed in keybindings if player already has this mapped.
+Config.Keybind = 'F3' -- FiveM Keyboard, this is registered keymapping, so needs changed in keybindings if player already has this mapped.
 Config.Toggle = true -- use toggle mode. False requires hold of key
 Config.UseWhilstWalking = false -- use whilst walking
 Config.EnableExtraMenu = false
@@ -373,29 +373,29 @@ Config.VehicleSeats = {
 
 Config.JobInteractions = {
     ["ambulance"] = {
-        {
-            id = 'stretcheroptions',
-            title = 'Brancard',
-            icon = 'bed-pulse',
-            items = {
-                {
-                    id = 'despawnstretcher',
-                    title = 'Ranger brancard',
-                    icon = 'minus',
-                    type = 'client',
-                    event = 'esx-radialmenu:client:RemoveStretcher',
-                    shouldClose = false
-                },
-                {
-                    id = 'spawnstretcher',
-                    title = 'Sortir brancard',
-                    icon = 'plus',
-                    type = 'client',
-                    event = 'esx-radialmenu:client:TakeStretcher',
-                    shouldClose = false
-                },
-            }
-        },        
+        -- {
+        --     id = 'stretcheroptions',
+        --     title = 'Brancard',
+        --     icon = 'bed-pulse',
+        --     items = {
+        --         {
+        --             id = 'despawnstretcher',
+        --             title = 'Ranger brancard',
+        --             icon = 'minus',
+        --             type = 'client',
+        --             event = 'esx-radialmenu:client:RemoveStretcher',
+        --             shouldClose = false
+        --         },
+        --         {
+        --             id = 'spawnstretcher',
+        --             title = 'Sortir brancard',
+        --             icon = 'plus',
+        --             type = 'client',
+        --             event = 'esx-radialmenu:client:TakeStretcher',
+        --             shouldClose = false
+        --         },
+        --     }
+        -- },
         {
             id = 'emsdistress',
             title = "Bouton d'Urgence",
