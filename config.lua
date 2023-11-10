@@ -48,6 +48,37 @@ Config.MenuItems = {
             },
         }
     },
+    [2] = {
+        id = 'license',
+        title = 'Licences',
+        icon = 'id-card',
+        items = {
+            {
+                id = 'id',
+                title = "Montrer carte d'identité",
+                icon = 'id-card',
+                type = 'client',
+                event = 'esx-radialmenu:client:showlicense',
+                shouldClose = true
+            },
+            {
+                id = 'driver',
+                title = "Montrer permis",
+                icon = 'address-card',
+                type = 'client',
+                event = "esx-radialmenu:client:showlicense",
+                shouldClose = true
+            },
+            {
+                id = 'weapon',
+                title = "Montrer licence d'armes",
+                icon = 'gun',
+                type = 'client',
+                event = "esx-radialmenu:client:showlicense",
+                shouldClose = true
+            },
+        }
+    },
     -- [2] = {
     --     id = 'general',
     --     title = 'Autres',
@@ -195,6 +226,14 @@ Config.VehicleDoors = {
             icon = 'car-side',
             type = 'client',
             event = 'esx-radialmenu:client:openDoor',
+            shouldClose = false
+        },
+        {
+            id = 'roof',
+            title = 'Ouvrir le toit',
+            icon = 'car-side',
+            type = 'client',
+            event = 'esx-radialmenu:client:openRoof',
             shouldClose = false
         },
         {

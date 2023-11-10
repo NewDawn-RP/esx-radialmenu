@@ -270,6 +270,19 @@ RegisterNetEvent('esx-radialmenu:client:noPlayers', function()
     ESX.ShowNotification("Aucun joueur n'est à proximité.", 'error', 2500)
 end)
 
+RegisterNetEvent('esx-radialmenu:client:openRoof', function()
+    local ped = PlayerPedId()
+    local closestVehicle = GetVehiclePedIsIn(ped)
+    if closestVehicle ~= 0 then
+        local roofState = GetConvertibleRoofState(closestVehicle)
+        if roofState == 0 then
+            LowerConvertibleRoof(closestVehicle, false)
+        elseif roofState == 2 then
+            RaiseConvertibleRoof(closestVehicle, false)
+        end
+    end
+end)
+
 RegisterNetEvent('esx-radialmenu:client:openDoor', function(data)
     local string = data.id
     local replace = string:gsub("door", "")
@@ -363,6 +376,38 @@ RegisterNetEvent('esx-radialmenu:client:ChangeSeat', function(data)
         end
     else
         ESX.ShowNotification(Translation("race_harness_on"), 'error')
+    end
+end)
+
+RegisterNetEvent("esx-radialmenu:client:showlicense", function (data)
+    local player, distance = ESX.Game.GetClosestPlayer()
+    local itemToFound = nil
+    if data.id == "id" then
+        itemToFound = "id_card"
+    elseif data.id == "driver" then
+        itemToFound = "driver_card"
+    elseif data.id == "weapon" then
+        itemToFound = "weapons_card"
+    end
+    local item = exports.ox_inventory:GetSlotWithItem(itemToFound)
+    if item and type(item) == "table" then
+        local metadata = item.metadata
+
+        if distance ~= -1 and distance <= 3.0 then
+          TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(player), data.id, metadata)
+        else
+            lib.notify({
+                title = 'Personne à proximité !',
+                type = 'error',
+                position = "center-right",
+            })
+        end
+    else
+        lib.notify({
+            title = 'Pas cette licence sur vous !',
+            type = 'error',
+            position = "center-right",
+        })
     end
 end)
 
