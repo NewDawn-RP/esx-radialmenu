@@ -388,6 +388,8 @@ RegisterNetEvent("esx-radialmenu:client:showlicense", function (data)
         itemToFound = "driver_card"
     elseif data.id == "weapon" then
         itemToFound = "weapons_card"
+    elseif data.id == "gouv" then
+        itemToFound = "gouv_card"
     end
     local item = exports.ox_inventory:GetSlotWithItem(itemToFound)
     if item and type(item) == "table" then

@@ -77,6 +77,14 @@ Config.MenuItems = {
                 event = "esx-radialmenu:client:showlicense",
                 shouldClose = true
             },
+            {
+                id = 'gouv',
+                title = "Montrer accréditation",
+                icon = 'passport',
+                type = 'client',
+                event = "esx-radialmenu:client:showlicense",
+                shouldClose = true
+            },
         }
     },
     -- [2] = {
