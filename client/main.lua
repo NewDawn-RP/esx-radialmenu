@@ -379,40 +379,6 @@ RegisterNetEvent('esx-radialmenu:client:ChangeSeat', function(data)
     end
 end)
 
-RegisterNetEvent("esx-radialmenu:client:showlicense", function (data)
-    local player, distance = ESX.Game.GetClosestPlayer()
-    local itemToFound = nil
-    if data.id == "id" then
-        itemToFound = "id_card"
-    elseif data.id == "driver" then
-        itemToFound = "driver_card"
-    elseif data.id == "weapon" then
-        itemToFound = "weapons_card"
-    elseif data.id == "gouv" then
-        itemToFound = "gouv_card"
-    end
-    local item = exports.ox_inventory:GetSlotWithItem(itemToFound)
-    if item and type(item) == "table" then
-        local metadata = item.metadata
-
-        if distance ~= -1 and distance <= 3.0 then
-          TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(player), data.id, metadata)
-        else
-            lib.notify({
-                title = 'Personne à proximité !',
-                type = 'error',
-                position = "center-right",
-            })
-        end
-    else
-        lib.notify({
-            title = 'Pas cette licence sur vous !',
-            type = 'error',
-            position = "center-right",
-        })
-    end
-end)
-
 RegisterNetEvent('esx-radialmenu:flipVehicle', function()
     TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
     if lib.progressBar({
